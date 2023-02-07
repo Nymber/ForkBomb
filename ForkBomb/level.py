@@ -1,6 +1,6 @@
 import pygame
 from tiles import Tile
-from settings import tile_size, WIDTH
+from settings import tile_size, WIDTH, clock
 from player import Player
 from enemy import Enemy
 from projectile import Projectile
@@ -9,7 +9,7 @@ from projectile import Projectile
 class Level:
 
     # default function when Level is instansialized
-    def __init__(self, level_data, surface):
+    def __init__(self, level_data, surface, lock):
         self.previous_time = pygame.time.get_ticks()
         self.damage_time = pygame.time.get_ticks()
         # level setup
@@ -17,6 +17,7 @@ class Level:
         self.setup_level(level_data)
         self.world_shift = 0
         self.health = 3
+        self.lock = lock
 
     # sets position of tiles as well as the player
     def setup_level(self, layout):
@@ -133,11 +134,12 @@ class Level:
                 print("Must move first")
 
     def run(self):
-        # level tiles
+        pygame.display.update()
+        self.lock.acquire()
+        self.lock.release()
         self.tiles.update(self.world_shift)
         self.tiles.draw(self.display_surface)
         self.scroll_x()
-
         # player
         self.player.update()
         self.horizontal_movement_collision()

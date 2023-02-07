@@ -1,7 +1,7 @@
-import pygame
 from support import import_folder
 from projectile import Projectile
 import console
+import pygame
 
 class Player(pygame.sprite.Sprite):
 
@@ -65,8 +65,12 @@ class Player(pygame.sprite.Sprite):
 
         if keys[pygame.K_UP] and self.on_ground:
             self.jump()
-        if keys[pygame.K_F1]:
-            console.consoleSystem.toggleConsole(1)
+        if keys[pygame.K_F1]: 
+                toggle = console.consoleSystem(self.msg,self.font,self.screen)
+        if keys[pygame.K_F2]:
+            print("Console Quit!")
+            self.status = False
+            pygame.font.quit()
 
     def get_status(self):
         if self.direction.y < 0:

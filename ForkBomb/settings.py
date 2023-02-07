@@ -16,6 +16,7 @@ level_map = [
     'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XX   XX  XXXXXXXXXXXXXXXXXXXXXXX']
 
 tile_size = 50
+clock = pygame.time.Clock()
 WIDTH = 1200
 HEIGHT = len(level_map) * tile_size
 screen = pygame.display.set_mode((WIDTH, HEIGHT))

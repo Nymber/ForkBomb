@@ -1,10 +1,7 @@
-import pygame
-import sys
 import settings
 
 class player():
-    #Inject data
+    #update Play Data 
     def inject():
         sysLog = open("gameConsoleLog.txt","w")
         sysLog.writelines(str(settings.Data))
-    #Inject data
