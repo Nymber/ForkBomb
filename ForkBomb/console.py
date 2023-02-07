@@ -1,17 +1,17 @@
 import pygame
 import time
-from settings import *
+import settings
 from pygame.locals import *
 
 #initialize
 pygame.init()
 
 class consoleSystem:
-    def __init__(self,msg,font,screen):
+    def __init__(self):
         print("Console Toggled!")
-        self.msg = msg
-        self.font = font
-        self.screen = screen
+        msg = settings.msg
+        font = settings.font
+        screen = settings.screen
         sysLog = open("gameConsoleLog.txt","r")
         __msg = sysLog.readlines()
         print(__msg)
@@ -21,7 +21,7 @@ class consoleSystem:
             throw = font.render(str(msg), 30, True, "blue")
             textRect = throw.get_rect()
             textRect.center = (500, 800)
-            screen.blit(throw, textRect)
+            settings.screen.blit(throw, textRect)
             pygame.display.update()
         else:
             print("same stats")

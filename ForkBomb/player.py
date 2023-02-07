@@ -66,7 +66,7 @@ class Player(pygame.sprite.Sprite):
         if keys[pygame.K_UP] and self.on_ground:
             self.jump()
         if keys[pygame.K_F1]: 
-                toggle = console.consoleSystem(self.msg,self.font,self.screen)
+                toggle = console.consoleSystem()
         if keys[pygame.K_F2]:
             print("Console Quit!")
             self.status = False

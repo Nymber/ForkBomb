@@ -35,7 +35,7 @@ connection = 1
 bitcoin = 0
 #program clientUserSettings
 
-
+msg = " "
 #dataToSaveFile
 Data = ["Username = " + str(username),"\n","password = " + str(password),"\n","money = " + str(money),"\n","power = " + str(power),"\n","memory = " + str(memory),"\n","connection = " + str(connection),"\n","bitcoin = " + str(bitcoin),"\n"] 
 #dataToSaveFile
