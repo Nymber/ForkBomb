@@ -1,0 +1,18 @@
+import settings,pygame, backgroundSystem
+from pygame.locals import *
+
+class console():
+    def __init__(self, Data):
+        self.userText = " "
+        self.Data = Data
+    def start(self):
+        for event in pygame.event.get():
+            if event.key == pygame.K_BACKSPACE:
+                settings.userText = settings.userText[0:-1]
+            else:
+                self.userText = event.unicode
+        throw = settings.font.render(str(self.Data), True, "blue")
+        settings.screen.blit(throw, (0, 30))
+        
+        self.input = settings.font.render(str(self.userText), True, "blue")
+        settings.screen.blit(throw, (0, 50))

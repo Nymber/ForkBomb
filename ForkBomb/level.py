@@ -1,10 +1,9 @@
-import pygame
+import pygame, settings, backgroundSystem
 from tiles import Tile
 from settings import tile_size, WIDTH, clock
 from player import Player
 from enemy import Enemy
 from projectile import Projectile
-
 
 class Level:
 
@@ -13,8 +12,12 @@ class Level:
         self.previous_time = pygame.time.get_ticks()
         self.damage_time = pygame.time.get_ticks()
         # level setup
+        self.Data = ''
+        self.Data = backgroundSystem.player()
+        print("1: ",self.Data)
         self.display_surface = surface
         self.setup_level(level_data)
+        
         self.world_shift = 0
         self.health = 3
 
@@ -40,7 +43,7 @@ class Level:
                     tile = Tile((x, y), tile_size, code)
                     self.tiles.add(tile)
                 if cell == 'P':
-                    player_sprite = Player((x, y))
+                    player_sprite = Player((x, y),self.Data)
                     self.player.add(player_sprite)
                 if cell == "E":
                     enemy_sprite = Enemy((x, y))
@@ -134,9 +137,11 @@ class Level:
 
     def run(self):
         pygame.display.update()
+
         self.tiles.update(self.world_shift)
         self.tiles.draw(self.display_surface)
         self.scroll_x()
+        
         # player
         self.player.update()
         self.horizontal_movement_collision()

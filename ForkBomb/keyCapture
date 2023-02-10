@@ -1,0 +1,6 @@
+class keyfor event in pygame.event.get():
+    if event.type == KEYDOWN:
+        if event.key == K_DOWN:
+            print('down!')
+        elif event.key == K_UP:
+            print('up!')

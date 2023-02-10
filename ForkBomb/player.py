@@ -1,12 +1,17 @@
 from support import import_folder
 from projectile import Projectile
-import console
 import pygame
-
+import console
+import backgroundSystem
+import consoleInput
 class Player(pygame.sprite.Sprite):
 
-    def __init__(self, pos):
+    def __init__(self, pos, Data):
+        
         super().__init__()
+        self.Data = Data
+        print("2: ",self.Data)
+        self.previous_time = pygame.time.get_ticks()
         self.import_character_assets()
         self.frame_index = 0
         self.animation_speed = 0.15
@@ -26,6 +31,8 @@ class Player(pygame.sprite.Sprite):
         self.on_left = False
         self.on_right = False
         self.facing_right = True
+        
+        
 
     def import_character_assets(self):
         character_path = 'images/character/'
@@ -53,7 +60,6 @@ class Player(pygame.sprite.Sprite):
 
     def get_input(self):
         keys = pygame.key.get_pressed()
-
         if keys[pygame.K_RIGHT]:
             self.direction.x = 1
             self.facing_right = True
@@ -65,12 +71,10 @@ class Player(pygame.sprite.Sprite):
 
         if keys[pygame.K_UP] and self.on_ground:
             self.jump()
-        if keys[pygame.K_F1]: 
-                toggle = console.consoleSystem()
-        if keys[pygame.K_F2]:
-            print("Console Quit!")
-            self.status = False
-            pygame.font.quit()
+        if keys[pygame.K_F1]:
+            toggle = console.consoleSystem(True, self.Data)
+        if keys[pygame.K_c]:
+            consoleInput.console_input(self.Data)
 
     def get_status(self):
         if self.direction.y < 0:

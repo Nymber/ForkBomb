@@ -10,7 +10,5 @@ pygame.init()
 background = pygame.image.load("images/background.png")
 clock = pygame.time.Clock()
 lock = threading.Lock()
-
 game = threading.Thread(target = startGame.start(lock), name='game', args=(),kwargs={})
 game.start()
-

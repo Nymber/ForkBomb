@@ -36,11 +36,12 @@ bitcoin = 0
 #program clientUserSettings
 
 msg = " "
-#dataToSaveFile
-Data = ["Username = " + str(username),"\n","password = " + str(password),"\n","money = " + str(money),"\n","power = " + str(power),"\n","memory = " + str(memory),"\n","connection = " + str(connection),"\n","bitcoin = " + str(bitcoin),"\n"] 
+userText = " "
+#dataToSaveFile 
+Data_center = (150, 5)
 #dataToSaveFile
 
 
 #fontValues
-font = pygame.font.SysFont("Verdana", 60)
+font = pygame.font.SysFont("Verdana", 12)
 #fontValues
