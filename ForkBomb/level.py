@@ -1,4 +1,4 @@
-import pygame, settings, backgroundSystem
+import pygame, backgroundSystem
 from tiles import Tile
 from settings import tile_size, WIDTH, clock
 from player import Player
@@ -12,18 +12,13 @@ class Level:
     def __init__(self, level_data, surface):
         self.damage_time = pygame.time.get_ticks()
         # level setup
-        self.Data = str(settings.username)  +  " "  +  str(settings.password)  +  " "  +  str(settings.money)  +  " "  +  str(settings.power)  +  " "  +  str(settings.memory)  +  " "  +  str(settings.connection)  +  " "  +  str(settings.bitcoin)
-        self.Data = list(self.Data.split(" "))
         self.previous_time = pygame.time.get_ticks()
-        self.Data = backgroundSystem.player(self, self.Data)
-        
-        print("1: ",self.Data)
+        backgroundSystem.player(self)
         self.display_surface = surface
         self.setup_level(level_data)
-        
         self.world_shift = 0
-
         self.health = 3
+        
     # sets position of tiles as well as the player
     def setup_level(self, layout):
         self.tiles = pygame.sprite.Group()
@@ -45,7 +40,7 @@ class Level:
                     tile = Tile((x, y), tile_size, code)
                     self.tiles.add(tile)
                 if cell == 'P':
-                    player_sprite = Player((x, y),self.Data)
+                    player_sprite = Player((x, y))
                     self.player.add(player_sprite)
                 if cell == "E":
                     enemy_sprite = Enemy((x, y))

@@ -1,13 +1,11 @@
 from support import import_folder
 from projectile import Projectile
-import pygame, settings, console, backgroundSystem, consoleInput
+import pygame, settings, console, backgroundSystem
 
 class Player(pygame.sprite.Sprite):
 
-    def __init__(self, pos, Data):
-        self.Data = Data
+    def __init__(self, pos):
         super().__init__()
-        print("2: ",str(self.Data))
         self.previous_time = pygame.time.get_ticks()
         self.import_character_assets()
         self.frame_index = 0
@@ -69,9 +67,8 @@ class Player(pygame.sprite.Sprite):
         if keys[pygame.K_UP] and self.on_ground:
             self.jump()
         if keys[pygame.K_F1]:
-            toggle = console.consoleSystem(True, self.Data)
-        if keys[pygame.K_c]:
-            consoleInput.console_input(self.Data)
+            toggle = console.consoleSystem(True)
+            
 
     def get_status(self):
         if self.direction.y < 0:

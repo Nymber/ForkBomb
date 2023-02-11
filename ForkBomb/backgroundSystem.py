@@ -2,9 +2,8 @@ import settings
 
 class player():
     def __init__(self, Data, *args):
-        self.Data = Data
+        self.Data = [settings.username, settings.password, settings.money, settings.power, settings.power, settings.memory, settings.connection, settings.power, settings.bitcoin]
         super().__init__()
-        settings.msg = self.Data
         player.inject(self, self.Data)
     #update Play Data 
     
