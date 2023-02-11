@@ -3,27 +3,29 @@ from tiles import Tile
 from settings import tile_size, WIDTH, clock
 from player import Player
 from enemy import Enemy
+import array as arr
 from projectile import Projectile
 
 class Level:
 
     # default function when Level is instansialized
     def __init__(self, level_data, surface):
-        self.previous_time = pygame.time.get_ticks()
         self.damage_time = pygame.time.get_ticks()
         # level setup
-        self.Data = ''
-        self.Data = backgroundSystem.player()
+        self.Data = str(settings.username)  +  " "  +  str(settings.password)  +  " "  +  str(settings.money)  +  " "  +  str(settings.power)  +  " "  +  str(settings.memory)  +  " "  +  str(settings.connection)  +  " "  +  str(settings.bitcoin)
+        self.Data = list(self.Data.split(" "))
+        self.previous_time = pygame.time.get_ticks()
+        self.Data = backgroundSystem.player(self, self.Data)
+        
         print("1: ",self.Data)
         self.display_surface = surface
         self.setup_level(level_data)
         
         self.world_shift = 0
-        self.health = 3
 
+        self.health = 3
     # sets position of tiles as well as the player
     def setup_level(self, layout):
-
         self.tiles = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
         self.enemy_group = pygame.sprite.Group()
@@ -56,7 +58,7 @@ class Level:
         player_x = player.rect.centerx
         direction_x = player.direction.x
 
-        if player_x < WIDTH - WIDTH + 150 and direction_x < 0:
+        if player_x < WIDTH - WIDTH  +  150 and direction_x < 0:
             self.world_shift = 6
             player.speed = 0
 
@@ -136,8 +138,6 @@ class Level:
                 print("Must move first")
 
     def run(self):
-        pygame.display.update()
-
         self.tiles.update(self.world_shift)
         self.tiles.draw(self.display_surface)
         self.scroll_x()

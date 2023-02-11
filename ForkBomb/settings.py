@@ -36,7 +36,7 @@ bitcoin = 0
 #program clientUserSettings
 
 msg = " "
-userText = " "
+userText = ""
 #dataToSaveFile 
 Data_center = (150, 5)
 #dataToSaveFile

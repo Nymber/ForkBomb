@@ -1,16 +1,13 @@
 from support import import_folder
 from projectile import Projectile
-import pygame
-import console
-import backgroundSystem
-import consoleInput
+import pygame, settings, console, backgroundSystem, consoleInput
+
 class Player(pygame.sprite.Sprite):
 
     def __init__(self, pos, Data):
-        
-        super().__init__()
         self.Data = Data
-        print("2: ",self.Data)
+        super().__init__()
+        print("2: ",str(self.Data))
         self.previous_time = pygame.time.get_ticks()
         self.import_character_assets()
         self.frame_index = 0

@@ -1,1 +1,1 @@
-['Username = test', '\n', 'password = test', '\n', 'money = 0', '\n', 'power = 1', '\n', 'memory = 1', '\n', 'connection = 1', '\n', 'bitcoin = 0', '\n']
+<level.Level object at 0x00000268D646BEB0>

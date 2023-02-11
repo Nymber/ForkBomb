@@ -1,6 +1,6 @@
 import settings,pygame, backgroundSystem
 from pygame.locals import *
-
+#concept 
 class console():
     def __init__(self, Data):
         self.userText = " "
