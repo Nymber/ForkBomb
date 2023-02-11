@@ -1,17 +1,18 @@
 import settings
 
-class player(self):
-    def __init__(self):
+class player():
+    def __init__(self, Data, *args):
+        self.Data = Data
         super().__init__()
-        self.Data = ["Username = " + str(settings.username),"\n","password = " + str(settings.password),"\n","money = " + str(settings.money),"\n","power = " + str(settings.power),"\n","memory = " + str(settings.memory),"\n","connection = " + str(settings.connection),"\n","bitcoin = " + str(settings.bitcoin),"\n"]
         settings.msg = self.Data
         player.inject(self, self.Data)
     #update Play Data 
     
-    def inject(self, data):
+    def inject(self, Data):
+        self.Data = Data
         sysLog = open("gameConsoleLog.txt","w")
-        sysLog.writelines(str(data))
+        sysLog.writelines(str(self.Data))
         sysLog.close()
-        return str(data)#need to fix 
+        return self.Data
         
         

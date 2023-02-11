@@ -14,6 +14,7 @@ keys = pygame.key.get_pressed()
 class startGame():
     def start(lock):
         level = Level(level_map, screen)
+        
         while True:
             lock.acquire()
             

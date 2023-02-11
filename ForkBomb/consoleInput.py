@@ -15,7 +15,7 @@ class console_input:
     
     def start(self):
         pygame.init()
-        for event in pygame.event.get(self.active, color_):    
+        for event in pygame.event.get(self.active, Color):    
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if textRect2.collidepoint(event.pos):
                     
