@@ -1,1 +1,1 @@
-<level.Level object at 0x00000268D646BEB0>
+['test', 'test', 0, 1, 1, 1, 1, 1, 0]

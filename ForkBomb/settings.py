@@ -34,9 +34,10 @@ memory = 1
 connection = 1
 bitcoin = 0
 #program clientUserSettings
-
+active = False
 msg = " "
 userText = ""
+clicks = 0
 #dataToSaveFile 
 Data_center = (150, 5)
 #dataToSaveFile

@@ -7,9 +7,9 @@ from pygame.locals import *
 pygame.init()
 
 class consoleSystem():
-    def __init__(self, status, Data):
-        self.Data = Data
-        print("3: ",self.Data)
+    def __init__(self, status):
+        self.Data = list()
+        self.Data = [settings.username, settings.password, settings.money, settings.power, settings.power, settings.memory, settings.connection, settings.power, settings.bitcoin]
         self.status = status
         self.keys = pygame.key.get_pressed()
         consoleSystem.start(self)
@@ -24,11 +24,9 @@ class consoleSystem():
         
         settings.screen.blit(self.throw, settings.Data_center)
         
-        settings.screen.blit(self.text_surface, (0, 40))
         
         self.status = 0
         
     def update(self):
         if(self.status == True):
             self.throw = settings.font.render(str(self.Data), 30, True, (255,255,255))
-            self.text_surface = settings.font.render(("Press c to open console"), True, "black")
