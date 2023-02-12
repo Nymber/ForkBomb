@@ -46,7 +46,7 @@ class console_input():
         # Blit the text.
         self.screen.blit(txt_surface, (self.input_box.x+5, self.input_box.y+5))
         
-        txt_surface = settings.font.render("Press F1 For Stats!", True, self.color)
+        txt_surface = settings.font.render("Press F1 For Stats!", True, "Black")
         self.screen.blit(txt_surface, ((0,50)))
         # Blit the input_box rect.
         pg.draw.rect(self.screen, self.color, self.input_box, 2)

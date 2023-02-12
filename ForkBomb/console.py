@@ -27,7 +27,6 @@ class consoleSystem():
         
     def start(self):
         consoleSystem.update(self)
-        print("Console Toggled!")
         
         settings.screen.blit(self.throw, settings.Data_center)
         

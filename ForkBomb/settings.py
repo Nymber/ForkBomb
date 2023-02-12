@@ -5,15 +5,15 @@ import pygame
 
 #map settings
 level_map = [
-    ' WW         E                  E     XXX          E           WW ',
+    ' WW         E                  E     XXX          E              WW ',
     ' WW         E           XXX       E     XXX          E           WW ',
     ' WW         E   XXX               E     XXX          E           WW ',
-    ' WW      XXX   E              XXX    E           XXX    E           WW ',
-    ' WW         E   XXX               E     XXX          E           WW ',
+    ' WW      XXX   E              XXX    E           XXX    E        WW ',
+    ' WW         E   XXX               E                  E           WW ',
     ' WW       XXX          XXX          XXX  E             E     E   WW ',
     ' WW                        XXX             XXX             XXX   WW ',
     ' WW P           E                                          XXX   WW ',
-    'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XX   XX  XXXXXXXXXXXXXXXXXXXXXXX']
+    'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX']
 
 tile_size = 50
 clock = pygame.time.Clock()
