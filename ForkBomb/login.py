@@ -10,6 +10,7 @@ class Login():
         self.Data = list()
         self.Data = [settings.username, settings.password, settings.money, settings.power, settings.power, settings.memory, settings.connection, settings.power, settings.bitcoin]
         self.timeout = 0
+        self.font = pygame.font.SysFont("Verdana", 16)
         self.username_input_box = pygame.Rect(500, 50, 40, 32)
         self.password_input_box = pygame.Rect(500, 100, 40, 32)
         self.color_passive = pygame.Color('blue')
@@ -29,12 +30,15 @@ class Login():
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if self.username_input_box.collidepoint(event.pos):
+                        settings.active_pass = False
                         settings.active_user = not settings.active_user
                     elif self.password_input_box.collidepoint(event.pos):
+                        settings.active_user = False
                         settings.active_pass = not settings.active_pass
                     else:
-                        settings.active_pass = False
                         settings.active_user = False
+                        settings.active_pass = False
+                       
                 if event.type == pygame.KEYDOWN:
                     if settings.active_user:
                         if event.key == pygame.K_RETURN:
@@ -66,8 +70,8 @@ class Login():
                         
         self.color_user = self.color_active if settings.active_user else self.color_passive
         self.color_pass = self.color_active if settings.active_pass else self.color_passive
-        user_surface = settings.font.render(settings.user_txt, True, self.color)
-        pass_surface = settings.font.render(settings.user_pass, True, self.color)
+        user_surface = self.font.render(settings.user_txt, True, self.color)
+        pass_surface = self.font.render(settings.user_pass, True, self.color)
         
         # Resize the box if the text is too long.
         user_width = max(200, user_surface.get_width()+10)
@@ -83,13 +87,13 @@ class Login():
         self.screen.blit(user_surface, (self.username_input_box.x+5, self.username_input_box.y+5))
         self.screen.blit(pass_surface, (self.password_input_box.x+5, self.password_input_box.y+5))
         
-        msg_surface = settings.font.render(settings.msg, True, self.color)
+        msg_surface = self.font.render(settings.msg, True, "black")
         self.screen.blit(msg_surface, ((500,5)))
         
-        user_text = settings.font.render("Username:", True, "black")
-        self.screen.blit(user_text, ((425,50)))
-        user_pass = settings.font.render("Password:", True, "black")
-        self.screen.blit(user_pass, ((425,100)))
+        user_text = self.font.render("Username:", True, "black")
+        self.screen.blit(user_text, ((400,50)))
+        user_pass = self.font.render("Password:", True, "black")
+        self.screen.blit(user_pass, ((408,100)))
         
         # Blit the input_box rect.
         pygame.draw.rect(self.screen, self.color_user, self.username_input_box, 2)
