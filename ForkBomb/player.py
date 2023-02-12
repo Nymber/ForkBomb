@@ -1,6 +1,6 @@
 from support import import_folder
 from projectile import Projectile
-import pygame, settings, console, backgroundSystem
+import pygame, console
 
 class Player(pygame.sprite.Sprite):
 

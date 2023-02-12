@@ -1,6 +1,4 @@
-import threading
-import pygame
-import sys
+import threading, pygame
 from settings import *
 from level import Level
 from interface import startGame
