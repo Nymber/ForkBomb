@@ -26,21 +26,26 @@ pygame.font.init()
 
 
 #program clientUserSettings
-username = "test"
-password = "test"
+username = ""
+password = ""
 money = 0
 power = 1
 memory = 1 
 connection = 1
 bitcoin = 0
+
 #program clientUserSettings
 active = False
-msg = " "
+user_txt = ''
+user_pass = ''
+active_user = False
+active_pass = False
+msg = "Login!"
 userText = ""
 clicks = 0
+
 #dataToSaveFile 
 Data_center = (150, 5)
-#dataToSaveFile
 
 
 #fontValues

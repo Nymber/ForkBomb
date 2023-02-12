@@ -1,13 +1,20 @@
-import pygame
-import time
-import settings
+import pygame, settings
 from pygame.locals import *
 
 #initialize
-pygame.init()
-
 class consoleSystem():
-    def __init__(self, status):
+    def __init__(self, screen, status = 1):
+        self.screen = screen
+        self.color_active = pygame.Color('lightskyblue3')
+        self.color_passive = pygame.Color('chartreuse4')
+        self.color = self.color_passive
+        self.Data = list()
+        self.Data = [settings.username, settings.password, settings.money, settings.power, settings.power, settings.memory, settings.connection, settings.power, settings.bitcoin]
+        self.timeout = 0
+        self.input_box = pygame.Rect(30, 100, 40, 32)
+        self.color_passive = pygame.Color('blue')
+        self.color_active = pygame.Color('black')
+        self.surface_text = settings.font.render(str(self.Data), True, "blue")
         self.Data = list()
         self.Data = [settings.username, settings.password, settings.money, settings.power, settings.power, settings.memory, settings.connection, settings.power, settings.bitcoin]
         self.status = status

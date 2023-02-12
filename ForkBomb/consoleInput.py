@@ -1,12 +1,8 @@
 import pygame, sys, settings 
 from pygame.locals import *
-input_rect = pygame.Rect(200,200,140,32)
-color = pygame.Color("lightskyblue3")
 
 class console_input():
     def __init__(self, screen):
-        print(str(settings.active))
-        
         self.screen = screen
         self.color_active = pygame.Color('lightskyblue3')
         self.color_passive = pygame.Color('chartreuse4')
@@ -33,7 +29,6 @@ class console_input():
                         settings.active = False
                 if event.type == pygame.KEYDOWN:
                     if settings.active:
-                        print("Active")
                         if event.key == pygame.K_RETURN:
                             print(settings.userText)
                             settings.userText = ''
@@ -54,6 +49,6 @@ class console_input():
         txt_surface = settings.font.render("Press F1 For Stats!", True, self.color)
         self.screen.blit(txt_surface, ((0,50)))
         # Blit the input_box rect.
-        pg.draw.rect(self.screen, color, self.input_box, 2)
+        pg.draw.rect(self.screen, self.color, self.input_box, 2)
         
         
