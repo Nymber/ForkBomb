@@ -26,7 +26,6 @@ class startGame():
                 level.run()
             else: 
                 infoGrab = login.run()
-                
             pygame.display.update()
             dt = clock.tick(60)
             lock.release()
